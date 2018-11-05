@@ -1,13 +1,15 @@
 {
-  "name": "v-samu-ui",
+  "name": "el-extend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name elextend --dest lib packages/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "moment": "^2.22.2",
     "vue": "^2.5.17"
   },
   "devDependencies": {

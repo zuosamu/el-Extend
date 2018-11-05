@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <z-data-render-table/>
+    <el-extend-data-render-table></el-extend-data-render-table>
   </div>
 </template>
 

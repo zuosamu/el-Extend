@@ -16,5 +16,13 @@ module.exports = {
       .tap(options => {
         return options;
       });
+  },
+  configureWebpack: {
+    externals: {
+      vue: "Vue",
+      axios: "axios",
+      "element-ui": "ElementUI",
+      moment: "moment"
+    }
   }
 };
