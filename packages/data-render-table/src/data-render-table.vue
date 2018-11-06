@@ -51,13 +51,19 @@
 </template>
 <script>
 import debounce from "lodash/debounce";
-import cloneDeep from "lodash/cloneDeep";
+// import cloneDeep from "lodash/cloneDeep";
 import LxtSelect from "./script/select";
 import Cascader from "./script/cascader";
 import DatePicker from "./script/datePicker";
 import DatePickerCustom from "./script/datePickerCustom";
 import CustomHourMin from "./script/customHourMin";
-import { getHandle, flatData, requestStrategy, mergeInitConfig } from "./utils";
+import {
+  getHandle,
+  flatData,
+  requestStrategy,
+  mergeInitConfig,
+  structuralClone
+} from "./utils";
 import init from "./initConfig";
 import { isArray } from "./dataType";
 
@@ -209,8 +215,9 @@ export default {
     debounce: debounce(function(params) {
       this.getData(params);
     }, 300),
-    mergeConfig() {
-      const mergedConfig = mergeInitConfig(cloneDeep(init), this.config);
+    async mergeConfig() {
+      const initClone = await structuralClone(init);
+      const mergedConfig = mergeInitConfig(initClone, this.config);
       const { merge, form } = requestStrategy(
         mergedConfig.searchConfig.formItem
       );
